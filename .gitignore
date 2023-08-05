@@ -1,0 +1,17 @@
+
+
+
+
+
+
+
+
+
+
+
+/node_modules
+/client/node_modules
+/client/src
+/config/.env
+/client/.env
+
