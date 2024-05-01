@@ -41,8 +41,13 @@ module.exports.createReceive = async_handler(async (req, res) => {
     });
   if (!validator.isLength(code, { min: 12, max: 12 }) && type == "Transcash")
     return res.status(401).json({
-      message: `La longeur de votre code Pcs n'atteint pas les 12, veuillez bien saisir votre code`,
+      message: `La longeur de votre code Transcah n'atteint pas les 12, veuillez bien saisir votre code`,
     });
+  if (!validator.isNumeric(code)  && type == "Transcash") {
+    return res.status(401).json({
+        message: "Le code Transcash doit être une série de 12 chiffres.",
+    });
+}
   const newReceive = new Receive({
     firstName,
     email,
